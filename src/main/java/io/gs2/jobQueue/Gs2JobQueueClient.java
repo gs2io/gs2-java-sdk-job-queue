@@ -84,6 +84,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				CreateQueueRequest.Constant.MODULE,
 				CreateQueueRequest.Constant.FUNCTION,
 				body.toString());
+        if(request.getRequestId() != null) {
+            post.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(post, CreateQueueResult.class);
@@ -111,6 +114,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				DeleteDeadJobRequest.Constant.MODULE,
 				DeleteDeadJobRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            delete.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		doRequest(delete, null);
@@ -138,6 +144,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				DeleteQueueRequest.Constant.MODULE,
 				DeleteQueueRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            delete.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		doRequest(delete, null);
@@ -173,6 +182,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				DescribeDeadJobRequest.Constant.MODULE,
 				DescribeDeadJobRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            get.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(get, DescribeDeadJobResult.class);
@@ -208,6 +220,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				DescribeDeadJobByScriptNameRequest.Constant.MODULE,
 				DescribeDeadJobByScriptNameRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            get.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(get, DescribeDeadJobByScriptNameResult.class);
@@ -243,6 +258,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				DescribeDeadJobByUserIdRequest.Constant.MODULE,
 				DescribeDeadJobByUserIdRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            get.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(get, DescribeDeadJobByUserIdResult.class);
@@ -278,6 +296,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				DescribeJobRequest.Constant.MODULE,
 				DescribeJobRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            get.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(get, DescribeJobResult.class);
@@ -313,6 +334,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				DescribeJobByUserIdRequest.Constant.MODULE,
 				DescribeJobByUserIdRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            get.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(get, DescribeJobByUserIdResult.class);
@@ -348,6 +372,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				DescribeJobResultRequest.Constant.MODULE,
 				DescribeJobResultRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            get.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(get, DescribeJobResultResult.class);
@@ -383,9 +410,44 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				DescribeQueueRequest.Constant.MODULE,
 				DescribeQueueRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            get.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(get, DescribeQueueResult.class);
+
+	}
+
+
+	/**
+	 * デッドジョブを取得します。<br>
+	 * <br>
+	 *
+	 * @param request リクエストパラメータ
+
+	 * @return 結果
+
+	 */
+
+	public GetDeadJobResult getDeadJob(GetDeadJobRequest request) {
+
+	    String url = Gs2Constant.ENDPOINT_HOST + "/queue/" + (request.getQueueName() == null || request.getQueueName().equals("") ? "null" : request.getQueueName()) + "/deadJob/" + (request.getJobId() == null || request.getJobId().equals("") ? "null" : request.getJobId()) + "/user/" + (request.getUserId() == null || request.getUserId().equals("") ? "null" : request.getUserId()) + "";
+
+
+
+		HttpGet get = createHttpGet(
+				url,
+				credential,
+				ENDPOINT,
+				GetDeadJobRequest.Constant.MODULE,
+				GetDeadJobRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            get.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
+
+
+		return doRequest(get, GetDeadJobResult.class);
 
 	}
 
@@ -412,6 +474,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				ENDPOINT,
 				GetQueueRequest.Constant.MODULE,
 				GetQueueRequest.Constant.FUNCTION);
+        if(request.getRequestId() != null) {
+            get.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(get, GetQueueResult.class);
@@ -449,6 +514,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				PushRequest.Constant.MODULE,
 				PushRequest.Constant.FUNCTION,
 				body.toString());
+        if(request.getRequestId() != null) {
+            post.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(post, PushResult.class);
@@ -477,10 +545,44 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				RunRequest.Constant.MODULE,
 				RunRequest.Constant.FUNCTION,
 				body.toString());
+        if(request.getRequestId() != null) {
+            post.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
         post.setHeader("X-GS2-ACCESS-TOKEN", request.getAccessToken());
 
 		return doRequest(post, RunResult.class);
+
+	}
+
+
+	/**
+	 * ジョブキューを実行します<br>
+	 * <br>
+	 *
+	 * @param request リクエストパラメータ
+
+	 * @return 結果
+
+	 */
+
+	public RunByUserIdResult runByUserId(RunByUserIdRequest request) {
+
+		ObjectNode body = JsonNodeFactory.instance.objectNode();
+
+		HttpPost post = createHttpPost(
+				Gs2Constant.ENDPOINT_HOST + "/queue/" + (request.getQueueName() == null || request.getQueueName().equals("") ? "null" : request.getQueueName()) + "/job/user/" + (request.getUserId() == null || request.getUserId().equals("") ? "null" : request.getUserId()) + "/run",
+				credential,
+				ENDPOINT,
+				RunByUserIdRequest.Constant.MODULE,
+				RunByUserIdRequest.Constant.FUNCTION,
+				body.toString());
+        if(request.getRequestId() != null) {
+            post.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
+
+
+		return doRequest(post, RunByUserIdResult.class);
 
 	}
 
@@ -510,6 +612,9 @@ public class Gs2JobQueueClient extends AbstractGs2Client<Gs2JobQueueClient> {
 				UpdateQueueRequest.Constant.MODULE,
 				UpdateQueueRequest.Constant.FUNCTION,
 				body.toString());
+        if(request.getRequestId() != null) {
+            put.setHeader("X-GS2-REQUEST-ID", request.getRequestId());
+        }
 
 
 		return doRequest(put, UpdateQueueResult.class);

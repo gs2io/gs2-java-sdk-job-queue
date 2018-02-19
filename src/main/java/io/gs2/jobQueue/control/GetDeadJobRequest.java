@@ -25,10 +25,10 @@ import io.gs2.control.Gs2BasicRequest;
  * @author Game Server Services, Inc.
  */
 @SuppressWarnings("serial")
-public class DeleteDeadJobRequest extends Gs2BasicRequest<DeleteDeadJobRequest> {
+public class GetDeadJobRequest extends Gs2BasicRequest<GetDeadJobRequest> {
 
 	public static class Constant extends Gs2JobQueue.Constant {
-		public static final String FUNCTION = "DeleteDeadJob";
+		public static final String FUNCTION = "GetDeadJob";
 	}
 
 	/** ジョブキューの名前 */
@@ -65,7 +65,7 @@ public class DeleteDeadJobRequest extends Gs2BasicRequest<DeleteDeadJobRequest> 
 	 * @param queueName ジョブキューの名前
 	 * @return this
 	 */
-	public DeleteDeadJobRequest withQueueName(String queueName) {
+	public GetDeadJobRequest withQueueName(String queueName) {
 		setQueueName(queueName);
 		return this;
 	}
@@ -94,7 +94,7 @@ public class DeleteDeadJobRequest extends Gs2BasicRequest<DeleteDeadJobRequest> 
 	 * @param userId ユーザID
 	 * @return this
 	 */
-	public DeleteDeadJobRequest withUserId(String userId) {
+	public GetDeadJobRequest withUserId(String userId) {
 		setUserId(userId);
 		return this;
 	}
@@ -123,7 +123,7 @@ public class DeleteDeadJobRequest extends Gs2BasicRequest<DeleteDeadJobRequest> 
 	 * @param jobId ジョブID
 	 * @return this
 	 */
-	public DeleteDeadJobRequest withJobId(String jobId) {
+	public GetDeadJobRequest withJobId(String jobId) {
 		setJobId(jobId);
 		return this;
 	}

@@ -123,5 +123,4 @@ public class PushJob implements Serializable {
 		setMaxRetry(maxRetry);
 		return this;
 	}
-
 }

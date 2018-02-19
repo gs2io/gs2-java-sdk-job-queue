@@ -25,10 +25,10 @@ import io.gs2.control.Gs2BasicRequest;
  * @author Game Server Services, Inc.
  */
 @SuppressWarnings("serial")
-public class DeleteDeadJobRequest extends Gs2BasicRequest<DeleteDeadJobRequest> {
+public class RunByUserIdRequest extends Gs2BasicRequest<RunByUserIdRequest> {
 
 	public static class Constant extends Gs2JobQueue.Constant {
-		public static final String FUNCTION = "DeleteDeadJob";
+		public static final String FUNCTION = "RunByUserId";
 	}
 
 	/** ジョブキューの名前 */
@@ -36,9 +36,6 @@ public class DeleteDeadJobRequest extends Gs2BasicRequest<DeleteDeadJobRequest> 
 
 	/** ユーザID */
 	private String userId;
-
-	/** ジョブID */
-	private String jobId;
 
 
 	/**
@@ -65,7 +62,7 @@ public class DeleteDeadJobRequest extends Gs2BasicRequest<DeleteDeadJobRequest> 
 	 * @param queueName ジョブキューの名前
 	 * @return this
 	 */
-	public DeleteDeadJobRequest withQueueName(String queueName) {
+	public RunByUserIdRequest withQueueName(String queueName) {
 		setQueueName(queueName);
 		return this;
 	}
@@ -94,37 +91,8 @@ public class DeleteDeadJobRequest extends Gs2BasicRequest<DeleteDeadJobRequest> 
 	 * @param userId ユーザID
 	 * @return this
 	 */
-	public DeleteDeadJobRequest withUserId(String userId) {
+	public RunByUserIdRequest withUserId(String userId) {
 		setUserId(userId);
-		return this;
-	}
-
-	/**
-	 * ジョブIDを取得
-	 *
-	 * @return ジョブID
-	 */
-	public String getJobId() {
-		return jobId;
-	}
-
-	/**
-	 * ジョブIDを設定
-	 *
-	 * @param jobId ジョブID
-	 */
-	public void setJobId(String jobId) {
-		this.jobId = jobId;
-	}
-
-	/**
-	 * ジョブIDを設定
-	 *
-	 * @param jobId ジョブID
-	 * @return this
-	 */
-	public DeleteDeadJobRequest withJobId(String jobId) {
-		setJobId(jobId);
 		return this;
 	}
 
