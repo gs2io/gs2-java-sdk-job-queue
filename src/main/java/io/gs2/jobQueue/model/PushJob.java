@@ -19,6 +19,8 @@ package io.gs2.jobQueue.model;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * キューに追加するジョブ
@@ -62,9 +64,10 @@ public class PushJob implements Serializable {
 	 * スクリプト名を設定
 	 *
 	 * @param scriptName スクリプト名
+	 * @return this
 	 */
 	public PushJob withScriptName(String scriptName) {
-		setScriptName(scriptName);
+		this.scriptName = scriptName;
 		return this;
 	}
 
@@ -90,9 +93,10 @@ public class PushJob implements Serializable {
 	 * 引数を設定
 	 *
 	 * @param args 引数
+	 * @return this
 	 */
 	public PushJob withArgs(String args) {
-		setArgs(args);
+		this.args = args;
 		return this;
 	}
 
@@ -118,9 +122,19 @@ public class PushJob implements Serializable {
 	 * 最大リトライ回数を設定
 	 *
 	 * @param maxRetry 最大リトライ回数
+	 * @return this
 	 */
 	public PushJob withMaxRetry(Integer maxRetry) {
-		setMaxRetry(maxRetry);
+		this.maxRetry = maxRetry;
 		return this;
 	}
+
+
+    public ObjectNode toJson() {
+		return JsonNodeFactory.instance.objectNode()
+
+            .put("scriptName", this.getScriptName())
+            .put("args", this.getArgs())
+            .put("maxRetry", this.getMaxRetry());
+    }
 }

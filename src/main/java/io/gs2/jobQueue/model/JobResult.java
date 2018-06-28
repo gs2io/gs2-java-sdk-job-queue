@@ -19,9 +19,11 @@ package io.gs2.jobQueue.model;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
- * ジョブ
+ * ジョブ結果
  *
  * @author Game Server Services, Inc.
  *
@@ -68,6 +70,17 @@ public class JobResult implements Serializable {
 	}
 
 	/**
+	 * ジョブIDを設定
+	 *
+	 * @param jobId ジョブID
+	 * @return this
+	 */
+	public JobResult withJobId(String jobId) {
+		this.jobId = jobId;
+		return this;
+	}
+
+	/**
 	 * キューGRNを取得
 	 *
 	 * @return キューGRN
@@ -83,6 +96,17 @@ public class JobResult implements Serializable {
 	 */
 	public void setQueueId(String queueId) {
 		this.queueId = queueId;
+	}
+
+	/**
+	 * キューGRNを設定
+	 *
+	 * @param queueId キューGRN
+	 * @return this
+	 */
+	public JobResult withQueueId(String queueId) {
+		this.queueId = queueId;
+		return this;
 	}
 
 	/**
@@ -104,6 +128,17 @@ public class JobResult implements Serializable {
 	}
 
 	/**
+	 * ステータスコードを設定
+	 *
+	 * @param statusCode ステータスコード
+	 * @return this
+	 */
+	public JobResult withStatusCode(Integer statusCode) {
+		this.statusCode = statusCode;
+		return this;
+	}
+
+	/**
 	 * 実行結果を取得
 	 *
 	 * @return 実行結果
@@ -119,6 +154,17 @@ public class JobResult implements Serializable {
 	 */
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+	/**
+	 * 実行結果を設定
+	 *
+	 * @param result 実行結果
+	 * @return this
+	 */
+	public JobResult withResult(String result) {
+		this.result = result;
+		return this;
 	}
 
 	/**
@@ -140,6 +186,17 @@ public class JobResult implements Serializable {
 	}
 
 	/**
+	 * キューの中で最後のジョブだったかを設定
+	 *
+	 * @param endOfJob キューの中で最後のジョブだったか
+	 * @return this
+	 */
+	public JobResult withEndOfJob(Boolean endOfJob) {
+		this.endOfJob = endOfJob;
+		return this;
+	}
+
+	/**
 	 * 作成日時を取得
 	 *
 	 * @return 作成日時
@@ -157,4 +214,26 @@ public class JobResult implements Serializable {
 		this.createAt = createAt;
 	}
 
+	/**
+	 * 作成日時を設定
+	 *
+	 * @param createAt 作成日時
+	 * @return this
+	 */
+	public JobResult withCreateAt(Integer createAt) {
+		this.createAt = createAt;
+		return this;
+	}
+
+
+    public ObjectNode toJson() {
+		return JsonNodeFactory.instance.objectNode()
+
+            .put("jobId", this.getJobId())
+            .put("queueId", this.getQueueId())
+            .put("statusCode", this.getStatusCode())
+            .put("result", this.getResult())
+            .put("endOfJob", this.getEndOfJob())
+            .put("createAt", this.getCreateAt());
+    }
 }

@@ -19,6 +19,8 @@ package io.gs2.jobQueue.model;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * ジョブ
@@ -68,6 +70,17 @@ public class DeadJob implements Serializable {
 	}
 
 	/**
+	 * ジョブIDを設定
+	 *
+	 * @param jobId ジョブID
+	 * @return this
+	 */
+	public DeadJob withJobId(String jobId) {
+		this.jobId = jobId;
+		return this;
+	}
+
+	/**
 	 * キューGRNを取得
 	 *
 	 * @return キューGRN
@@ -83,6 +96,17 @@ public class DeadJob implements Serializable {
 	 */
 	public void setQueueId(String queueId) {
 		this.queueId = queueId;
+	}
+
+	/**
+	 * キューGRNを設定
+	 *
+	 * @param queueId キューGRN
+	 * @return this
+	 */
+	public DeadJob withQueueId(String queueId) {
+		this.queueId = queueId;
+		return this;
 	}
 
 	/**
@@ -104,6 +128,17 @@ public class DeadJob implements Serializable {
 	}
 
 	/**
+	 * オーナーIDを設定
+	 *
+	 * @param userId オーナーID
+	 * @return this
+	 */
+	public DeadJob withUserId(String userId) {
+		this.userId = userId;
+		return this;
+	}
+
+	/**
 	 * スクリプト名を取得
 	 *
 	 * @return スクリプト名
@@ -119,6 +154,17 @@ public class DeadJob implements Serializable {
 	 */
 	public void setScriptName(String scriptName) {
 		this.scriptName = scriptName;
+	}
+
+	/**
+	 * スクリプト名を設定
+	 *
+	 * @param scriptName スクリプト名
+	 * @return this
+	 */
+	public DeadJob withScriptName(String scriptName) {
+		this.scriptName = scriptName;
+		return this;
 	}
 
 	/**
@@ -140,6 +186,17 @@ public class DeadJob implements Serializable {
 	}
 
 	/**
+	 * 引数を設定
+	 *
+	 * @param args 引数
+	 * @return this
+	 */
+	public DeadJob withArgs(String args) {
+		this.args = args;
+		return this;
+	}
+
+	/**
 	 * 作成日時を取得
 	 *
 	 * @return 作成日時
@@ -157,4 +214,26 @@ public class DeadJob implements Serializable {
 		this.createAt = createAt;
 	}
 
+	/**
+	 * 作成日時を設定
+	 *
+	 * @param createAt 作成日時
+	 * @return this
+	 */
+	public DeadJob withCreateAt(Integer createAt) {
+		this.createAt = createAt;
+		return this;
+	}
+
+
+    public ObjectNode toJson() {
+		return JsonNodeFactory.instance.objectNode()
+
+            .put("jobId", this.getJobId())
+            .put("queueId", this.getQueueId())
+            .put("userId", this.getUserId())
+            .put("scriptName", this.getScriptName())
+            .put("args", this.getArgs())
+            .put("createAt", this.getCreateAt());
+    }
 }

@@ -19,6 +19,7 @@ package io.gs2.jobQueue.control;
 import org.json.JSONObject;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.gs2.model.*;
 import io.gs2.jobQueue.model.*;
 
 /**
@@ -27,23 +28,23 @@ import io.gs2.jobQueue.model.*;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class RunByUserIdResult {
 
-	/** ジョブ */
+	/** ジョブ結果 */
 	private JobResult item;
 
 
 	/**
-	 * ジョブを取得
+	 * ジョブ結果を取得
 	 *
-	 * @return ジョブ
+	 * @return ジョブ結果
 	 */
 	public JobResult getItem() {
 		return item;
 	}
 
 	/**
-	 * ジョブを設定
+	 * ジョブ結果を設定
 	 *
-	 * @param item ジョブ
+	 * @param item ジョブ結果
 	 */
 	public void setItem(JobResult item) {
 		this.item = item;

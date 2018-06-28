@@ -26,10 +26,10 @@ import io.gs2.control.Gs2BasicRequest;
  * @author Game Server Services, Inc.
  */
 @SuppressWarnings("serial")
-public class DeleteQueueRequest extends Gs2BasicRequest<DeleteQueueRequest> {
+public class GetQueueStatusRequest extends Gs2BasicRequest<GetQueueStatusRequest> {
 
 	public static class Constant extends Gs2JobQueue.Constant {
-		public static final String FUNCTION = "DeleteQueue";
+		public static final String FUNCTION = "GetQueueStatus";
 	}
 
 	/** ジョブキューの名前を指定します。 */
@@ -60,7 +60,7 @@ public class DeleteQueueRequest extends Gs2BasicRequest<DeleteQueueRequest> {
 	 * @param queueName ジョブキューの名前を指定します。
 	 * @return this
 	 */
-	public DeleteQueueRequest withQueueName(String queueName) {
+	public GetQueueStatusRequest withQueueName(String queueName) {
 		setQueueName(queueName);
 		return this;
 	}

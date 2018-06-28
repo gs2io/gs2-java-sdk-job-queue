@@ -19,6 +19,7 @@ package io.gs2.jobQueue.control;
 import org.json.JSONObject;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.gs2.model.*;
 import io.gs2.jobQueue.model.*;
 
 /**
@@ -27,7 +28,7 @@ import io.gs2.jobQueue.model.*;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class DescribeJobResultResult {
 
-	/** ジョブ */
+	/** ジョブ結果 */
 	private List<JobResult> items;
 
 	/** 次のページを読み込むためのトークン */
@@ -35,18 +36,18 @@ public class DescribeJobResultResult {
 
 
 	/**
-	 * ジョブを取得
+	 * ジョブ結果を取得
 	 *
-	 * @return ジョブ
+	 * @return ジョブ結果
 	 */
 	public List<JobResult> getItems() {
 		return items;
 	}
 
 	/**
-	 * ジョブを設定
+	 * ジョブ結果を設定
 	 *
-	 * @param items ジョブ
+	 * @param items ジョブ結果
 	 */
 	public void setItems(List<JobResult> items) {
 		this.items = items;

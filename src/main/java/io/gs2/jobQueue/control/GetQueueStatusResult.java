@@ -26,28 +26,28 @@ import io.gs2.jobQueue.model.*;
  * @author Game Server Services, Inc.
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class UpdateQueueResult {
+public class GetQueueStatusResult {
 
-	/** キュー */
-	private Queue item;
+	/** ステータス */
+	private String status;
 
 
 	/**
-	 * キューを取得
+	 * ステータスを取得
 	 *
-	 * @return キュー
+	 * @return ステータス
 	 */
-	public Queue getItem() {
-		return item;
+	public String getStatus() {
+		return status;
 	}
 
 	/**
-	 * キューを設定
+	 * ステータスを設定
 	 *
-	 * @param item キュー
+	 * @param status ステータス
 	 */
-	public void setItem(Queue item) {
-		this.item = item;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }
